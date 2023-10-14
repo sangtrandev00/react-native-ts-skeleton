@@ -1,9 +1,9 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
+import { Link, SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { Pressable, Text, useColorScheme } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -44,11 +44,61 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-
+  // colorScheme === 'dark' ? DarkTheme :
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={ DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="header" 
+        options={
+            {
+              headerStyle: {backgroundColor: "#2e78b7"},
+              headerTintColor: "red",
+              headerLeft: () => (
+                <Link href="/modal" >
+                  <Pressable>
+                    {({ pressed }) => (
+                      <FontAwesome
+                        name="info-circle"
+                        size={25}
+                        color={"blue"}
+                        style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
+                      />
+                    )}
+                  </Pressable>
+                </Link>
+              ),
+              headerRight: () => (
+                <Link href="/modal" >
+                  <Pressable>
+                    {({ pressed }) => (
+                      <FontAwesome
+                        name="info-circle"
+                        size={25}
+                        color={"blue"}
+                        style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                      />
+                    )}
+                  </Pressable>
+                </Link>
+              ),
+              presentation: "modal"
+            }
+
+          }></Stack.Screen>
+        <Stack.Screen name="(tabs)" options={{ 
+            headerShown: true, 
+            headerLeft: () => (
+              <Text style={{color: "blue"}}>
+                  This is a very top left header of tab
+              </Text>
+            ),
+            headerRight: () => (
+              <Text style={{color: "red"}}>
+                This is a very top right header of tab
+              </Text>
+            ),
+            headerTitle: "Very good"
+          }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
