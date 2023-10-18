@@ -2,11 +2,15 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { Link, Stack } from 'expo-router';
 import { button as ButtonCmp } from '@/components';
+import { GluestackUIProvider, Box as GlueBox } from "@gluestack-ui/themed"
+import { config } from "@gluestack-ui/config" // Optional if you want to use default theme
 
 type Props = {}
 const Index = (props: Props) => {
   return (
-    <SafeAreaView>
+    <GluestackUIProvider config={config}>
+      
+      <SafeAreaView>
         <Stack.Screen options={{ 
             title: 'Index',
             headerStyle: {backgroundColor: '#2e78b7'},
@@ -14,7 +18,7 @@ const Index = (props: Props) => {
 
         </Stack.Screen>
         
-        <View >
+        <View >         
             <Text style={styles.textWhite}>Index page</Text>
             <ButtonCmp/>
             <Link href="/layout/header">
@@ -24,10 +28,18 @@ const Index = (props: Props) => {
         </View>
 
         <View>
-            
+            <Text>Hello World</Text>
         </View>
+
+        <GlueBox width="100%" justifyContent="center" alignItems="center">
+        <Text>Open up App.js to start working on your app!</Text>
+      </GlueBox>
   
     </SafeAreaView>
+
+    </GluestackUIProvider>
+
+   
   )
 }
 
