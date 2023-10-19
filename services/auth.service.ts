@@ -42,17 +42,6 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${BACKEND_URL}/auth`,
     prepareHeaders(headers) {
-      const adminToken = localStorage.getItem('adminToken');
-      const token = localStorage.getItem('token');
-      if (adminToken) {
-        headers.set('authorization', `Bearer ${adminToken}`);
-        headers.set('adminRole', 'admin');
-      }
-      if (token) {
-        headers.set('authorization', `Bearer ${token}`);
-        headers.set('userRole', 'user');
-      }
-      // Set some headers here !
       return headers;
     }
   }),

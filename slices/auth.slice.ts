@@ -52,13 +52,11 @@ const authSlice = createSlice({
       state.isAuth = false;
       state.token = null;
       state.userId = '';
-      localStorage.removeItem('token');
     },
     setAdminUnauthenticated(state) {
       state.isAdminAuth = false;
       state.adminToken = null;
       state.adminId = '';
-      localStorage.removeItem('adminToken');
     },
     openAuthModal(state) {
       state.isOpenAuthModal = true;

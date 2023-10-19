@@ -30,29 +30,7 @@ export const formatVideoLengthToHours = (seconds: number): string => {
 };
 
 export function getHeaders() {
-  const token = localStorage.getItem('token');
-  if (token) {
-    return {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    };
-  } else {
-    return {
-      'Content-Type': 'application/json'
-    };
-  }
 }
 
 export function getHeadersAdmin() {
-  const adminToken = localStorage.getItem('adminToken');
-  if (adminToken) {
-    return {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${adminToken}`
-    };
-  } else {
-    return {
-      'Content-Type': 'application/json'
-    };
-  }
 }

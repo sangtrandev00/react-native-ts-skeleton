@@ -3,7 +3,7 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { useFonts } from 'expo-font';
 import { Link, SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
-import { Pressable, Text, useColorScheme } from 'react-native';
+import { Pressable, Text, View, useColorScheme } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -48,6 +48,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={ DefaultTheme}>
       <Stack>
+        <View>Header</View>
         <Stack.Screen name="header" 
         options={
             {

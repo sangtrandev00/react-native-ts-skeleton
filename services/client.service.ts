@@ -166,18 +166,6 @@ export const clientApi = createApi({
     baseUrl: `${BACKEND_URL}`,
     prepareHeaders(headers) {
       headers.set('authorization', 'Bearer ABCXYZ');
-
-      const token = localStorage.getItem('token');
-
-      if (token) {
-        const decodedToken: { exp: number; iat: number; userId: string; email: string } = jwtDecode(token);
-
-        headers.set('UserId', decodedToken.userId);
-      }
-
-      // Add the userId header
-
-      // Set some headers here !
       return headers;
     }
   }),

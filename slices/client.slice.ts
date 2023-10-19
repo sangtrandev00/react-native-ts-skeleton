@@ -21,10 +21,8 @@ interface ClientState {
   //   formData: IClient;
 }
 
-const storedCart = JSON.parse(localStorage.getItem('cart') || '{}') as ICart;
-
 const localCart = {
-  items: storedCart.items || []
+  items: []
 };
 
 const initialState: ClientState = {
@@ -66,11 +64,7 @@ const clientSlice = createSlice({
           const cartForStorage = {
             items: state.cart.items
           };
-
-          localStorage.setItem('cart', JSON.stringify(cartForStorage));
-        //   notification.success({
-        //     message: 'Add to cart successfully!'
-        //   });
+        
         }
       } else {
         console.log('_id is null');
@@ -83,7 +77,6 @@ const clientSlice = createSlice({
       const courseExistingIdx = state.cart.items.findIndex((item) => item.courseId === action.payload);
       if (courseExistingIdx >= 0) {
         state.cart.items.splice(courseExistingIdx, 1);
-        localStorage.setItem('cart', JSON.stringify(state.cart));
       }
     },
     // createOrder: (state, action: PayloadAction<Omit<IOrder, "_id">) => {
