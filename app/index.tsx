@@ -12,6 +12,12 @@ const StyledText = styled(Text);
 type Props = {}
 const Index = (props: Props) => {
     
+  const onPress = () => {
+    console.log("Button Pressed ahihi");
+
+    window.alert("pressed!");
+  }
+
   return (
     <Provider store={store}>
       <GluestackUIProvider config={config}>
@@ -41,7 +47,11 @@ const Index = (props: Props) => {
 
         <GlueBox width="100%" justifyContent="center" alignItems="center">
         <Text className="text-red-300">Open up App.js to start working on your app!</Text>
-          <StyledText style={tw `text-red-300 font-bold  bg-blue-300 p-4`}>Ahihi</StyledText>
+
+            <Pressable onPress={onPress}>
+              <StyledText style={tw `text-red-300 font-bold  bg-blue-300 p-4`}  >Ahihi</StyledText>
+            </Pressable>
+
       </GlueBox>
   
     </SafeAreaView>

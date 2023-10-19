@@ -11,7 +11,7 @@ function BlogScreen({}: Props) {
     <View>
         <Text style={tw `font-bold`}>BlogScreen</Text>
         <View>
-          {/* <Blog/> */}
+          <Blog/>
         </View>
     </View>
   )
