@@ -10,7 +10,7 @@ const config = getDefaultConfig(__dirname, {
   // }
 });
 
-// config.resolver.sourceExts.push('mjs', 'cjs')
+config.resolver.sourceExts.push('mjs', 'cjs')
 module.exports = config;
 
 // const { makeMetroConfig } = require("@rnx-kit/metro-config")

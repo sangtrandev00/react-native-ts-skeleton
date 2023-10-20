@@ -8,6 +8,7 @@ import { styled } from 'nativewind';
 import tw from 'twrnc';
 import { Provider } from 'react-redux';
 import { store } from '@/store/store';
+import Toast from 'react-native-toast-message';
 const StyledText = styled(Text);
 type Props = {}
 const Index = (props: Props) => {
@@ -53,7 +54,8 @@ const Index = (props: Props) => {
             </Pressable>
 
       </GlueBox>
-  
+        <Toast/>
+
     </SafeAreaView>
 
     </GluestackUIProvider>
